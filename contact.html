@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Comorshop</title>
+  <!-- Lien vers votre fichier de style CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête de la page -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Le formulaire de contact -->
+    <section class="section-contact">
+      <h2>Contactez-nous / Demande de devis</h2>
+      <p>Une question sur nos produits (meubles, électroménager, textile) ? Laissez-nous un message :</p>
+
+      <form action="https://formspree.io/f/xwvgaazp" method="POST" class="form-contact">
+        <div class="champ-groupe">
+          <label for="nom">Nom complet ou Nom de l'entreprise :</label>
+          <input type="text" id="nom" name="nom" required placeholder="Ex: Jean Dupont / Société ABC">
+        </div>
+
+        <div class="champ-groupe">
+          <label for="email">Votre adresse e-mail :</label>
+          <input type="email" id="email" name="email" required placeholder="votre@email.com">
+        </div>
+
+        <div class="champ-groupe">
+          <label for="categorie">Produit concerné :</label>
+          <select id="categorie" name="categorie">
+            <option value="meubles">Meubles</option>
+            <option value="electromenager">Électroménager</option>
+            <option value="textile">Textile</option>
+            <option value="autre">Autre demande</option>
+          </select>
+        </div>
+
+        <div class="champ-groupe">
+          <label for="message">Votre message ou détails de votre commande :</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Détaillez votre demande ici..."></textarea>
+        </div>
+
+        <button type="submit" class="bouton-envoyer">Envoyer le message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; Comorshop - Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
