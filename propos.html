@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Comorshop</title>
+    <title>Comorshop - À propos</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,16 +12,26 @@
             background-color: #f8f9fa;
             color: #333;
         }
+
+        /* En-tête avec le logo */
         header {
-            background-color: #2c3e50;
+            background-color: #1a365d;
             color: white;
             padding: 30px 20px;
             text-align: center;
         }
+
+        .site-logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Menu de navigation */
         nav {
-            background-color: #34495e;
+            background-color: #2b6cb0;
             text-align: center;
-            padding: 10px;
+            padding: 12px;
         }
         nav a {
             color: white;
@@ -32,14 +42,54 @@
         nav a:hover {
             color: #25D366;
         }
+
+        /* Contenu principal */
         main {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 30px 25px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            line-height: 1.6;
         }
+
+        h2 {
+            color: #1a365d;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #2b6cb0;
+            margin-top: 25px;
+        }
+
+        .highlight-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #2b6cb0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Bouton principal */
+        .btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #1eb854;
+        }
+
+        /* Pied de page */
         footer {
             text-align: center;
             padding: 20px;
@@ -61,20 +111,54 @@
 <body>
 
     <header>
-        <h1>À propos de Comorshop</h1>
+        <img src="logo.png" alt="Logo Comorshop" class="site-logo">
+        <h1>Comorshop</h1>
+        <p>Qui sommes-nous ?</p>
     </header>
 
     <nav>
         <a href="index.html">Accueil</a>
         <a href="propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
         <a href="mentions-legales.html">Mentions Légales</a>
         <a href="cgv.html">CGV</a>
     </nav>
 
     <main>
-        <h2>Notre Histoire</h2>
-        <p>Bienvenue chez Comorshop ! Nous sommes spécialisés dans la fourniture de produits de qualité.</p>
-        <p>Notre mission est d'offrir à nos clients le meilleur service possible avec une livraison rapide et un support réactif.</p>
+        <h2>Notre Histoire & Notre Mission</h2>
+        
+        <p>
+            Bienvenue chez <strong>Comorshop</strong>, votre société spécialisée dans le commerce international et l'import-export de marchandises de qualité.
+        </p>
+
+        <p>
+            Forts de plus de 10 ans d'expérience dans la gestion commerciale et le service client, nous plaçons la rigueur, le suivi personnalisé et la satisfaction au cœur de chacune de nos opérations.
+        </p>
+
+        <div class="highlight-box">
+            <strong>Notre promesse :</strong> Simplifier vos approvisionnements internationaux et vous garantir des produits soigneusement sélectionnés, expédiés en toute sécurité jusqu'à leur destination finale.
+        </div>
+
+        <h3>Ce que nous proposons</h3>
+        <p>
+            Comorshop vous accompagne dans le sourçage et l'acheminement de 4 univers majeurs de produits :
+        </p>
+        <ul>
+            <li><strong>🛋️ Meubles :</strong> Mobilier moderne, durable et adapté à tous les styles d'intérieurs.</li>
+            <li><strong>🔌 Électroménager :</strong> Équipements de maison et professionnels certifiés.</li>
+            <li><strong>🧵 Textile :</strong> Produits textiles et habillement sélectionnés pour leur rapport qualité/prix.</li>
+            <li><strong>🧱 Carrelage :</strong> Revêtements de sol et de mur (carrelage, céramique) pour la construction et la rénovation.</li>
+        </ul>
+
+        <h3>Un accompagnement dédié</h3>
+        <p>
+            Que vous soyez basé en France pour meubler ou équiper un projet à distance, ou que vous ayez des besoins logistiques spécifiques, Comorshop gère le suivi de votre commande avec transparence et professionnalisme.
+        </p>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p>Un projet d'aménagement ou d'équipement en vue ?</p>
+            <a href="contact.html" class="btn">Demander une étude ou un devis</a>
+        </div>
     </main>
 
     <footer>
