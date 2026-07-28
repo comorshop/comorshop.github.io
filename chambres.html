@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comorshop - Chambres à coucher</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* En-tête */
+        header {
+            background-color: #1a365d;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .site-logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Menu de navigation */
+        nav {
+            background-color: #2b6cb0;
+            text-align: center;
+            padding: 12px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #25D366;
+        }
+
+        /* Contenu principal */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1a365d;
+        }
+
+        /* Grille pour afficher la galerie de chambres */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* Carte individuelle pour chaque chambre */
+        .catalog-card {
+            position: relative;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        .catalog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Badge de référence sur chaque photo */
+        .ref-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #1a365d;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+            background-color: #e9ecef;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Logo Comorshop" class="site-logo">
+        <h1>Comorshop</h1>
+        <p>Catalogue Chambres à coucher</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="salons.html">Salons</a>
+        <a href="chambres.html">Chambres à coucher</a>
+        <a href="propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="cgv.html">CGV</a>
+    </nav>
+
+    <main>
+        <h2>🛏️ Collection Chambres à coucher</h2>
+        <p style="text-align: center;">Découvrez notre sélection. Pour toute demande de devis, indiquez la référence affichée sur la photo (ex: CHB-0001) dans notre formulaire de contact.</p>
+
+        <!-- Zone où les 62 images s'affichent automatiquement -->
+        <div class="catalog-grid" id="chambresContainer"></div>
+    </main>
+
+    <footer>
+        &copy; 2026 Comorshop - Tous droits réservés. | 
+        <a href="mentions-legales.html">Mentions Légales</a> | 
+        <a href="cgv.html">CGV</a>
+    </footer>
+
+    <!-- Script automatique prenant en compte la dénomination CHB-0001.png à CHB-0062.png -->
+    <script>
+        const container = document.getElementById('chambresContainer');
+        const totalChambres = 62;
+
+        for (let i = 1; i <= totalChambres; i++) {
+            // Formate le numéro sur 4 chiffres avec des zéros devant (ex: 0001, 0002, ..., 0062)
+            const formattedNum = String(i).padStart(4, '0');
+            const refName = `CHB-${formattedNum}`;
+            
+            const card = document.createElement('div');
+            card.className = 'catalog-card';
+            card.innerHTML = `
+                <span class="ref-badge">${refName}</span>
+                <img src="${refName}.png" alt="Chambre à coucher ${refName}" loading="lazy">
+            `;
+            container.appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
