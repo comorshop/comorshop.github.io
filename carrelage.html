@@ -181,7 +181,7 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- SCRIPT AUTOMATIQUE ET FILTRE CARRELAGE -->
+    <!-- SCRIPT AUTOMATIQUE ET FILTRE CARRELAGE (Format JPG) -->
     <script>
         // Nombre exact d'images par format (Total : 199 images)
         const tilesData = [
@@ -193,7 +193,7 @@
 
         const container = document.getElementById('carrelageContainer');
 
-        // Génération automatique des 199 cartes de carrelage
+        // Génération automatique des 199 cartes de carrelage en .jpg
         tilesData.forEach(tileGroup => {
             for (let i = 1; i <= tileGroup.count; i++) {
                 const formattedNum = String(i).padStart(3, '0');
@@ -203,7 +203,7 @@
                 card.className = `catalog-card tile-item tile-${tileGroup.format}`;
                 card.innerHTML = `
                     <span class="ref-badge">${refName}</span>
-                    <img src="${refName}.png" alt="Carrelage ${refName}" loading="lazy">
+                    <img src="${refName}.jpg" alt="Carrelage ${refName}" loading="lazy">
                 `;
                 container.appendChild(card);
             }
