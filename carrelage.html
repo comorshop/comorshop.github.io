@@ -164,11 +164,11 @@
 
         <!-- BOUTONS DE FILTRAGE PAR TAILLE -->
         <div class="filter-container">
-            <button class="filter-btn active" onclick="filterTiles('all')">Tous les formats</button>
-            <button class="filter-btn" onclick="filterTiles('60x60')">Format 60x60 cm</button>
-            <button class="filter-btn" onclick="filterTiles('30x60')">Format 30x60 cm</button>
-            <button class="filter-btn" onclick="filterTiles('20x40')">Format 20x40 cm</button>
-            <button class="filter-btn" onclick="filterTiles('30x30')">Format 30x30 cm</button>
+            <button class="filter-btn active" onclick="filterTiles(event, 'all')">Tous les formats</button>
+            <button class="filter-btn" onclick="filterTiles(event, '60x60')">Format 60x60 cm</button>
+            <button class="filter-btn" onclick="filterTiles(event, '30x60')">Format 30x60 cm</button>
+            <button class="filter-btn" onclick="filterTiles(event, '20x40')">Format 20x40 cm</button>
+            <button class="filter-btn" onclick="filterTiles(event, '30x30')">Format 30x30 cm</button>
         </div>
 
         <!-- ZONE D'AFFICHAGE DU CARRELAGE -->
@@ -181,19 +181,19 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- SCRIPT AUTOMATIQUE ET FILTRE CARRELAGE (Format JPG) -->
+    <!-- SCRIPT AUTOMATIQUE ET FILTRE CARRELAGE (Dossier carreaux/) -->
     <script>
-        // Nombre exact d'images par format (Total : 199 images)
+        // Nombre exact d'images par format (Total : 189 images)
         const tilesData = [
             { format: '30x30', count: 65 },
-            { format: '20x40', count: 69 },
+            { format: '20x40', count: 59 },
             { format: '30x60', count: 14 },
             { format: '60x60', count: 51 }
         ];
 
         const container = document.getElementById('carrelageContainer');
 
-        // Génération automatique des 199 cartes de carrelage en .jpg
+        // Génération automatique des cartes de carrelage depuis le sous-dossier carreaux/
         tilesData.forEach(tileGroup => {
             for (let i = 1; i <= tileGroup.count; i++) {
                 const formattedNum = String(i).padStart(3, '0');
@@ -203,18 +203,18 @@
                 card.className = `catalog-card tile-item tile-${tileGroup.format}`;
                 card.innerHTML = `
                     <span class="ref-badge">${refName}</span>
-                    <img src="${refName}.jpg" alt="Carrelage ${refName}" loading="lazy">
+                    <img src="carreaux/${refName}.jpg" alt="Carrelage ${refName}" loading="lazy">
                 `;
                 container.appendChild(card);
             }
         });
 
         // Fonction pour filtrer l'affichage selon le format cliqué
-        function filterTiles(category) {
+        function filterTiles(evt, category) {
             // Gestion de l'apparence des boutons (actif / inactif)
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            evt.target.classList.add('active');
 
             // Affichage ou masquage des carreaux
             const items = document.querySelectorAll('.tile-item');
