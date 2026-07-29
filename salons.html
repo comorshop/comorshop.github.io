@@ -122,19 +122,19 @@
     </header>
 
     <nav>
-    <a href="index.html">Accueil</a>
-    <a href="salons.html">Salons</a>
-    <a href="chambres.html">Chambres</a>
-    <a href="carrelage.html">Carrelage</a>
-    <a href="propos.html">À propos</a>
-    <a href="contact.html">Contact</a>
-    <a href="mentions-legales.html">Mentions Légales</a>
-    <a href="cgv.html">CGV</a>
-</nav>
+        <a href="index.html">Accueil</a>
+        <a href="salons.html">Salons</a>
+        <a href="chambres.html">Chambres</a>
+        <a href="carrelage.html">Carrelage</a>
+        <a href="propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="cgv.html">CGV</a>
+    </nav>
 
     <main>
         <h2>🛋️ Collection Salons</h2>
-        <p style="text-align: center;">Retrouvez ci-dessous nos modèles. Pour toute demande de prix ou devis, précisez la référence (ex: REF-SALON-1) dans le formulaire de contact.</p>
+        <p style="text-align: center;">Retrouvez ci-dessous nos modèles. Pour toute demande de prix ou devis, précisez la référence (ex: SALON-1) dans le formulaire de contact.</p>
 
         <!-- Zone où les 111 images s'affichent automatiquement -->
         <div class="catalog-grid" id="salonsContainer"></div>
@@ -146,7 +146,7 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique qui crée les 111 images avec leurs références -->
+    <!-- Script automatique pointant vers le dossier salons/ -->
     <script>
         const container = document.getElementById('salonsContainer');
         const totalSalons = 111;
@@ -156,7 +156,7 @@
             card.className = 'catalog-card';
             card.innerHTML = `
                 <span class="ref-badge">SALON-${i}</span>
-                <img src="image${i}.png" alt="Salon SALON-${i}" loading="lazy">
+                <img src="salons/image${i}.png" alt="Salon SALON-${i}" loading="lazy">
             `;
             container.appendChild(card);
         }
