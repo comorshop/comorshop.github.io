@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comorshop - Nos Salons</title>
+    <title>Comorshop - Électroménager</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -57,7 +57,7 @@
             color: #1a365d;
         }
 
-        /* Grille pour afficher la galerie de salons */
+        /* Grille des produits */
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -65,7 +65,7 @@
             padding: 20px 0;
         }
 
-        /* Carte individuelle pour chaque canapé */
+        /* Carte individuelle */
         .catalog-card {
             position: relative;
             border: 1px solid #e2e8f0;
@@ -82,7 +82,7 @@
             display: block;
         }
 
-        /* Badge de Référence Bleu sur chaque photo */
+        /* Badge de Référence Bleu */
         .ref-badge {
             position: absolute;
             top: 10px;
@@ -118,7 +118,7 @@
     <header>
         <img src="logo.png" alt="Logo Comorshop" class="site-logo">
         <h1>Comorshop</h1>
-        <p>Catalogue Salons & Canapés</p>
+        <p>Catalogue Électroménager</p>
     </header>
 
     <nav>
@@ -126,8 +126,8 @@
         <a href="salons.html">Salons</a>
         <a href="chambres.html">Chambres</a>
         <a href="carrelage.html">Carrelage</a>
-        <a href="electromenager.html">Électroménager</a>
         <a href="vetements.html">Vêtements</a>
+        <a href="electromenager.html">Électroménager</a>
         <a href="propos.html">À propos</a>
         <a href="contact.html">Contact</a>
         <a href="mentions-legales.html">Mentions Légales</a>
@@ -135,11 +135,11 @@
     </nav>
 
     <main>
-        <h2>🛋️ Collection Salons</h2>
-        <p style="text-align: center;">Retrouvez ci-dessous nos modèles. Pour toute demande de prix ou devis, précisez la référence (ex: SALON-1) dans le formulaire de contact.</p>
+        <h2>🔌 Collection Électroménager</h2>
+        <p style="text-align: center;">Retrouvez ci-dessous nos équipements. Précisez la référence dans le formulaire de contact pour toute demande.</p>
 
-        <!-- Zone où les 111 images s'affichent automatiquement -->
-        <div class="catalog-grid" id="salonsContainer"></div>
+        <!-- Zone d'affichage des cartes -->
+        <div class="catalog-grid" id="electroContainer"></div>
     </main>
 
     <footer>
@@ -148,20 +148,31 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique pointant vers le dossier salons/ -->
+    <!-- Script dynamique Électroménager -->
     <script>
-        const container = document.getElementById('salonsContainer');
-        const totalSalons = 111;
+        const container = document.getElementById('electroContainer');
 
-        for (let i = 1; i <= totalSalons; i++) {
-            const card = document.createElement('div');
-            card.className = 'catalog-card';
-            card.innerHTML = `
-                <span class="ref-badge">SALON-${i}</span>
-                <img src="salons/image${i}.png" alt="Salon SALON-${i}" loading="lazy">
-            `;
-            container.appendChild(card);
-        }
+        const categories = [
+            { folder: 'refrigerateurs', prefix: 'refrig', count: 19 },
+            { folder: 'congelateurs', prefix: 'cong', count: 20 },
+            { folder: 'fours', prefix: 'four', count: 9 }
+        ];
+
+        categories.forEach(cat => {
+            for (let i = 1; i <= cat.count; i++) {
+                const numStr = String(i).padStart(2, '0');
+                const filePath = `electromenager/${cat.folder}/${cat.prefix}_${numStr}.jpg`;
+                const refBadge = `${cat.prefix}_${numStr}`;
+
+                const card = document.createElement('div');
+                card.className = 'catalog-card';
+                card.innerHTML = `
+                    <span class="ref-badge">${refBadge}</span>
+                    <img src="${filePath}" alt="${refBadge}" loading="lazy">
+                `;
+                container.appendChild(card);
+            }
+        });
     </script>
 
 </body>
