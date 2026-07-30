@@ -162,7 +162,7 @@
         formats.forEach(item => {
             for (let i = 1; i <= item.count; i++) {
                 const numStr = String(i).padStart(3, '0'); // formate 1 -> 001, 2 -> 002...
-                const fileName = `CAR-${item.format}-${numStr}.jpg`;
+                const fileName = `./carrelage/CAR-${item.format}-${numStr}.jpg`;
                 const refBadge = `CAR-${item.format}-${numStr}`;
 
                 const card = document.createElement('div');

@@ -171,7 +171,7 @@
         categories.forEach(cat => {
             for (let i = 1; i <= cat.count; i++) {
                 const numStr = String(i).padStart(2, '0'); // transforme 1 en 01, 2 en 02...
-                const fileName = `${cat.prefix}_${numStr}.jpg`;
+                const fileName = `./vetements/${cat.prefix}_${numStr}.jpg`;
                 const refBadge = `${cat.prefix}_${numStr}`;
 
                 const card = document.createElement('div');
