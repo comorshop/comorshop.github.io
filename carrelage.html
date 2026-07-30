@@ -147,7 +147,7 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique pointant vers le dossier carrelage/ -->
+    <!-- Script automatique pointant vers le dossier carrelage/ (Format JPG) -->
     <script>
         const container = document.getElementById('carrelageContainer');
         const totalCarrelages = 130;
@@ -160,7 +160,7 @@
             card.className = 'catalog-card';
             card.innerHTML = `
                 <span class="ref-badge">${refName}</span>
-                <img src="carrelage/IMAGE${i}.png" alt="Carrelage ${refName}" loading="lazy">
+                <img src="carrelage/IMAGE${i}.jpg" alt="Carrelage ${refName}" loading="lazy">
             `;
             container.appendChild(card);
         }

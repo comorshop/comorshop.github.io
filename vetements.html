@@ -147,10 +147,10 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique pointant vers le dossier vetements/ -->
+    <!-- Script automatique pointant vers le dossier vetements/ (Format JPG) -->
     <script>
         const container = document.getElementById('vetementsContainer');
-        const totalVetements = 44; // Ajuste ce chiffre selon le nombre exact d'images dans le dossier vetements/
+        const totalVetements = 44; // Ajuste selon le nombre exact d'images
 
         for (let i = 1; i <= totalVetements; i++) {
             const formattedNum = String(i).padStart(4, '0');
@@ -160,7 +160,7 @@
             card.className = 'catalog-card';
             card.innerHTML = `
                 <span class="ref-badge">${refName}</span>
-                <img src="vetements/${refName}.png" alt="Vêtement ${refName}" loading="lazy">
+                <img src="vetements/${refName}.jpg" alt="Vêtement ${refName}" loading="lazy">
             `;
             container.appendChild(card);
         }
