@@ -147,34 +147,34 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script dynamique exact selon vos fichiers vêtements -->
+    <!-- Script dynamique avec sous-dossiers exacts -->
     <script>
         const container = document.getElementById('vetementsContainer');
 
         const categories = [
-            { prefix: 'caftan', count: 26 },
-            { prefix: 'jean_adulte', count: 20 },
-            { prefix: 'jean_enfant', count: 9 },
-            { prefix: 'polo', count: 18 },
-            { prefix: 'pull_adulte', count: 33 },
-            { prefix: 'pull_enfant', count: 9 },
-            { prefix: 'robe', count: 28 },
-            { prefix: 'sweatshirt', count: 8 },
-            { prefix: 'tshirt_adulte', count: 9 },
-            { prefix: 'tshirt_enfant', count: 9 }
+            { folder: 'caftans', prefix: 'caftan', count: 26 },
+            { folder: 'jeans_adultes', prefix: 'jean_adulte', count: 20 },
+            { folder: 'jeans_enfants', prefix: 'jean_enfant', count: 9 },
+            { folder: 'polos', prefix: 'polo', count: 18 },
+            { folder: 'pulls_adultes', prefix: 'pull_adulte', count: 33 },
+            { folder: 'pulls_enfants', prefix: 'pull_enfant', count: 9 },
+            { folder: 'robes_femmes', prefix: 'robe', count: 28 },
+            { folder: 'sweatshirts', prefix: 'sweatshirt', count: 8 },
+            { folder: 'tshirts_adultes', prefix: 'tshirt_adulte', count: 9 },
+            { folder: 'tshirts_enfants', prefix: 'tshirt_enfant', count: 9 }
         ];
 
         categories.forEach(cat => {
             for (let i = 1; i <= cat.count; i++) {
                 const numStr = String(i).padStart(2, '0');
-                const fileName = `${cat.prefix}_${numStr}.jpg`;
+                const filePath = `vetements/${cat.folder}/${cat.prefix}_${numStr}.jpg`;
                 const refBadge = `${cat.prefix}_${numStr}`;
 
                 const card = document.createElement('div');
                 card.className = 'catalog-card';
                 card.innerHTML = `
                     <span class="ref-badge">${refBadge}</span>
-                    <img src="vetements/${fileName}" alt="${refBadge}" loading="lazy">
+                    <img src="${filePath}" alt="${refBadge}" loading="lazy">
                 `;
                 container.appendChild(card);
             }
