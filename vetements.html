@@ -57,7 +57,7 @@
             color: #1a365d;
         }
 
-        /* Grille pour afficher la galerie de vêtements */
+        /* Grille des vêtements */
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -65,7 +65,7 @@
             padding: 20px 0;
         }
 
-        /* Carte individuelle pour chaque article */
+        /* Carte individuelle */
         .catalog-card {
             position: relative;
             border: 1px solid #e2e8f0;
@@ -75,14 +75,16 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
         }
 
+        /* Ajustement contain pour ne pas couper les habits */
         .catalog-card img {
             width: 100%;
-            height: 240px;
-            object-fit: cover;
+            height: 260px;
+            object-fit: contain;
+            background-color: #f8f9fa;
             display: block;
         }
 
-        /* Badge de référence sur chaque photo */
+        /* Badge de référence */
         .ref-badge {
             position: absolute;
             top: 10px;
@@ -135,9 +137,9 @@
 
     <main>
         <h2>👗 Collection Vêtements</h2>
-        <p style="text-align: center;">Découvrez notre sélection. Pour toute demande de devis ou commande, indiquez la référence affichée sur la photo (ex: VET-0001) dans notre formulaire de contact.</p>
+        <p style="text-align: center;">Découvrez notre sélection. Pour toute demande de devis, précisez le nom du modèle (ex: caftan_01, tshirt_adulte_02) dans le formulaire de contact.</p>
 
-        <!-- Zone où les images s'affichent automatiquement -->
+        <!-- Zone d'affichage des vêtements -->
         <div class="catalog-grid" id="vetementsContainer"></div>
     </main>
 
@@ -147,23 +149,40 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique pointant vers le dossier vetements/ (Format JPG) -->
+    <!-- Script dynamique par catégories de vêtements -->
     <script>
         const container = document.getElementById('vetementsContainer');
-        const totalVetements = 44; // Ajuste selon le nombre exact d'images
 
-        for (let i = 1; i <= totalVetements; i++) {
-            const formattedNum = String(i).padStart(4, '0');
-            const refName = `VET-${formattedNum}`;
-            
-            const card = document.createElement('div');
-            card.className = 'catalog-card';
-            card.innerHTML = `
-                <span class="ref-badge">${refName}</span>
-                <img src="vetements/${refName}.jpg" alt="Vêtement ${refName}" loading="lazy">
-            `;
-            container.appendChild(card);
-        }
+        // Liste des catégories et du nombre de photos associées
+        // Modifie les chiffres selon ce que tu as exactement dans ton dossier
+        const categories = [
+            { prefix: 'caftan', count: 5 },
+            { prefix: 'jean_adulte', count: 5 },
+            { prefix: 'jean_enfant', count: 5 },
+            { prefix: 'polo', count: 5 },
+            { prefix: 'pull_adulte', count: 5 },
+            { prefix: 'pull_enfant', count: 5 },
+            { prefix: 'robe', count: 5 },
+            { prefix: 'sweatshirt', count: 5 },
+            { prefix: 'tshirt_adulte', count: 5 },
+            { prefix: 'tshirt_enfant', count: 5 }
+        ];
+
+        categories.forEach(cat => {
+            for (let i = 1; i <= cat.count; i++) {
+                const numStr = String(i).padStart(2, '0'); // transforme 1 en 01, 2 en 02...
+                const fileName = `${cat.prefix}_${numStr}.jpg`;
+                const refBadge = `${cat.prefix}_${numStr}`;
+
+                const card = document.createElement('div');
+                card.className = 'catalog-card';
+                card.innerHTML = `
+                    <span class="ref-badge">${refBadge}</span>
+                    <img src="vetements/${fileName}" alt="${refBadge}" loading="lazy">
+                `;
+                container.appendChild(card);
+            }
+        });
     </script>
 
 </body>

@@ -147,23 +147,33 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script automatique pointant vers le dossier carrelage/ (Format JPG) -->
+    <!-- Script dynamique par formats de carrelage -->
     <script>
         const container = document.getElementById('carrelageContainer');
-        const totalCarrelages = 130;
 
-        for (let i = 1; i <= totalCarrelages; i++) {
-            const formattedNum = String(i).padStart(4, '0');
-            const refName = `CRL-${formattedNum}`;
-            
-            const card = document.createElement('div');
-            card.className = 'catalog-card';
-            card.innerHTML = `
-                <span class="ref-badge">${refName}</span>
-                <img src="carrelage/IMAGE${i}.jpg" alt="Carrelage ${refName}" loading="lazy">
-            `;
-            container.appendChild(card);
-        }
+        // Configuration des formats et de la quantité d'images
+        const formats = [
+            { format: '20x40', count: 59 },
+            { format: '30x30', count: 65 },
+            { format: '30x60', count: 14 },
+            { format: '60x60', count: 51 }
+        ];
+
+        formats.forEach(item => {
+            for (let i = 1; i <= item.count; i++) {
+                const numStr = String(i).padStart(3, '0'); // formate 1 -> 001, 2 -> 002...
+                const fileName = `CAR-${item.format}-${numStr}.jpg`;
+                const refBadge = `CAR-${item.format}-${numStr}`;
+
+                const card = document.createElement('div');
+                card.className = 'catalog-card';
+                card.innerHTML = `
+                    <span class="ref-badge">${refBadge}</span>
+                    <img src="carrelage/${fileName}" alt="${refBadge}" loading="lazy">
+                `;
+                container.appendChild(card);
+            }
+        });
     </script>
 
 </body>
