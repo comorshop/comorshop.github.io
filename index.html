@@ -1,171 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comorshop - Accueil</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comorshop - Accueil</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 { color: #0066cc; margin-bottom: 5px; }
+    p.subtitle { color: #666; font-size: 1.1em; }
 
-        /* En-tête avec le logo */
-        header {
-            background-color: #1a365d; /* Bleu marine foncé */
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        /* Réglage de la taille de votre logo */
-        .site-logo {
-            max-width: 120px; /* Ajustez ce chiffre si vous souhaitez agrandir ou réduire */
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        /* Menu de navigation */
-        nav {
-            background-color: #2b6cb0; /* Bleu moyen */
-            text-align: center;
-            padding: 12px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #25D366; /* Vert au survol */
-        }
-
-        /* Contenu principal */
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        /* Cartes de présentation des 4 catégories */
-        .categories-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        .category-card {
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 8px;
-            width: 180px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        /* Bouton principal */
-        .btn {
-            display: inline-block;
-            background-color: #25D366; /* Vert WhatsApp */
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background-color: #1eb854;
-        }
-
-        /* Pied de page */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9em;
-            background-color: #e9ecef;
-            margin-top: 40px;
-        }
-        footer a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    /* Grille des catégories sur l'accueil */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .carte-categorie {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .carte-categorie:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .carte-categorie h2 {
+      margin-top: 0;
+      color: #111;
+    }
+    .carte-categorie p {
+      color: #666;
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+    /* Boutons de redirection */
+    .btn-categorie {
+      display: inline-block;
+      background-color: #0066cc;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-categorie:hover {
+      background-color: #0052a3;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <!-- Affichage du logo -->
-        <img src="logo.png" alt="Logo Comorshop" class="site-logo">
-        <h1>Bienvenue chez Comorshop</h1>
-        <p>Votre partenaire de confiance en import-export</p>
-    </header>
+  <header>
+    <h1>Bienvenue sur Comorshop</h1>
+    <p class="subtitle">Découvrez nos collections pour équiper et habiller votre quotidien</p>
+  </header>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="salons.html">Salons</a>
-    <a href="chambres.html">Chambres</a>
-    <a href="carrelage.html">Carrelage</a>
-    <a href="vetements.html">Vêtements</a>
-    <a href="propos.html">À propos</a>
-    <a href="contact.html">Contact</a>
-    <a href="mentions-legales.html">Mentions Légales</a>
-    <a href="cgv.html">CGV</a>
-</nav>
+  <main class="categories-grid">
 
-    <main>
-        <h2>Nos Univers de Produits</h2>
-        <p>Découvrez nos services d'approvisionnement et d'expéditions de marchandises de qualité.</p>
-
-        <!-- Les 4 catégories -->
-        <div class="categories-container">
-           <div class="category-card">
-    <img src="salons/image1.png" alt="Salon" style="width: 100%; height: auto; object-fit: contain;">
-    <div class="category-card-content">
-        <h3>🛋️ Salons</h3>
-        <p>Canapés et salons modernes pour tous les styles.</p>
-        <a href="salons.html" style="color: #2b6cb0; font-weight: bold; text-decoration: none;">Voir la collection →</a>
+    <!-- Rubrique Vêtements -->
+    <div class="carte-categorie">
+      <h2>Vêtements</h2>
+      <p>Découvrez notre collection textile : caftans, jeans, polos, robes et plus encore.</p>
+      <a href="vetements.html" class="btn-categorie">Voir les Vêtements</a>
     </div>
-</div>
-            <div class="category-card">
-                <h3>🔌 Électroménager</h3>
-                <p>Équipements performants pour la maison et les entreprises.</p>
-            </div>
-            <div class="category-card">
-                <h3>🧵 Textile</h3>
-                <p>Sélection de produits textiles et habillement.</p>
-            </div>
-            <div class="category-card">
-                <h3>🧱 Carrelage</h3>
-                <p>Revêtements, sols et carrelages pour vos projets.</p>
-            </div>
-        </div>
 
-        <div style="margin-top: 40px;">
-            <p>Vous avez une commande spécifique ou besoin d'un devis ?</p>
-            <a href="contact.html" class="btn">Demander un devis</a>
-        </div>
-    </main>
+    <!-- Rubrique Chambres -->
+    <div class="carte-categorie">
+      <h2>Chambres</h2>
+      <p>Mobilier, literie et aménagement pour vos espaces nuit.</p>
+      <a href="chambres.html" class="btn-categorie">Voir les Chambres</a>
+    </div>
 
-    <footer>
-        &copy; 2026 Comorshop - Tous droits réservés. | 
-        <a href="mentions-legales.html">Mentions Légales</a> | 
-        <a href="cgv.html">CGV</a>
-    </footer>
+    <!-- Rubrique Carrelage -->
+    <div class="carte-categorie">
+      <h2>Carrelage</h2>
+      <p>Revêtements et solutions pour vos sols et murs.</p>
+      <a href="carrelage.html" class="btn-categorie">Voir le Carrelage</a>
+    </div>
+
+  </main>
 
 </body>
 </html>
+
