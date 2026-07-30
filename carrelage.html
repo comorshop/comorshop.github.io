@@ -57,7 +57,7 @@
             color: #1a365d;
         }
 
-        /* Grille pour afficher la galerie de carrelage */
+        /* Grille pour afficher le carrelage */
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -65,7 +65,7 @@
             padding: 20px 0;
         }
 
-        /* Carte individuelle pour chaque modèle */
+        /* Carte individuelle */
         .catalog-card {
             position: relative;
             border: 1px solid #e2e8f0;
@@ -82,7 +82,7 @@
             display: block;
         }
 
-        /* Badge de référence sur chaque photo */
+        /* Badge de Référence Bleu */
         .ref-badge {
             position: absolute;
             top: 10px;
@@ -135,9 +135,9 @@
 
     <main>
         <h2>🧱 Collection Carrelage</h2>
-        <p style="text-align: center;">Découvrez nos modèles. Pour toute demande de devis, indiquez la référence affichée sur la photo (ex: CRL-0001) dans notre formulaire de contact.</p>
+        <p style="text-align: center;">Retrouvez ci-dessous nos modèles. Pour toute demande de devis, précisez la référence exacte (ex: CAR-20x40-001) dans le formulaire de contact.</p>
 
-        <!-- Zone où les 130 images s'affichent automatiquement -->
+        <!-- Zone d'affichage -->
         <div class="catalog-grid" id="carrelageContainer"></div>
     </main>
 
@@ -147,11 +147,10 @@
         <a href="cgv.html">CGV</a>
     </footer>
 
-    <!-- Script dynamique par formats de carrelage -->
+    <!-- Script dynamique exact selon vos fichiers carrelage -->
     <script>
         const container = document.getElementById('carrelageContainer');
 
-        // Configuration des formats et de la quantité d'images
         const formats = [
             { format: '20x40', count: 59 },
             { format: '30x30', count: 65 },
@@ -161,8 +160,8 @@
 
         formats.forEach(item => {
             for (let i = 1; i <= item.count; i++) {
-                const numStr = String(i).padStart(3, '0'); // formate 1 -> 001, 2 -> 002...
-                const fileName = `./carrelage/CAR-${item.format}-${numStr}.jpg`;
+                const numStr = String(i).padStart(3, '0');
+                const fileName = `CAR-${item.format}-${numStr}.jpg`;
                 const refBadge = `CAR-${item.format}-${numStr}`;
 
                 const card = document.createElement('div');
