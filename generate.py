@@ -50,4 +50,4 @@ html_content += """
 with open("vetements.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("Le fichier vetements.html a été généré avec succès !")
+print("Génération réussie !")
